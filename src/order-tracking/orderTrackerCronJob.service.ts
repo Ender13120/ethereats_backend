@@ -23,7 +23,7 @@ export class OrderTrackerService {
     );
   }
 
-  @Cron(CronExpression.EVERY_1ST_DAY_OF_MONTH_AT_NOON)
+  @Cron(CronExpression.EVERY_10_MINUTES)
   async handleCron() {
     this.logger.log('Starting to check:');
     try {
