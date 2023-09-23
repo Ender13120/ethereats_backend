@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  name  String
+  email String  @unique
+}
+
+
+model OrderCount {
+  id    Int    @id @default(autoincrement())
+  count Int
+  createdAt DateTime @default(now())
+}
+model Order {
+  id              Int      @id @default(autoincrement())
+  customer        String   // Assuming this is the Ethereum address of the customer
+  deliverer       String   // Assuming this is the Ethereum address of the deliverer
+  amount          String   // BigInt is suitable for representing large integers, like wei amounts in Ethereum
+  timestamp       String   // Assuming this is a Unix timestamp
+  encryptedParams String   // Assuming this is a hex string or base64 encoded data
+  isAccepted      Boolean
+  isCompleted     Boolean
+  createdAt       DateTime @default(now())
+  SignatureConfirmation String?
+}
