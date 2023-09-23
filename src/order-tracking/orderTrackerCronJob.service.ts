@@ -23,7 +23,7 @@ export class OrderTrackerService {
     );
   }
 
-  @Cron(CronExpression.EVERY_10_SECONDS)
+  @Cron(CronExpression.EVERY_1ST_DAY_OF_MONTH_AT_NOON)
   async handleCron() {
     this.logger.log('Starting to check:');
     try {
@@ -47,7 +47,7 @@ export class OrderTrackerService {
         : 0;
 
       // If there are new orders, fetch their details and store them in the database
-      for (let i = 0; i <= orderCountFromContract.toString(); i++) {
+      for (let i = 1; i <= orderCountFromContract.toString(); i++) {
         const order = await this.contract.orders(i);
         this.logger.log(order);
 

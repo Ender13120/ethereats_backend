@@ -24,11 +24,11 @@ model OrderCount {
 }
 model Order {
   id              Int      @id @default(autoincrement())
-  customer        String   // Assuming this is the Ethereum address of the customer
-  deliverer       String   // Assuming this is the Ethereum address of the deliverer
-  amount          String   // BigInt is suitable for representing large integers, like wei amounts in Ethereum
-  timestamp       String   // Assuming this is a Unix timestamp
-  encryptedParams String   // Assuming this is a hex string or base64 encoded data
+  customer        String   // Ethereum address of the customer
+  deliverer       String   // Ethereum address of the deliverer
+  amount          String  
+  timestamp       String  
+  encryptedParams String   //Encrypted With GovernanceKeys + hashed 
   isAccepted      Boolean
   isCompleted     Boolean
   createdAt       DateTime @default(now())
