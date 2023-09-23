@@ -28,9 +28,4 @@ ethereatsbackend-production.up.railway.app
 ### Additional Features:
 
 - **Decryption Utility**: The service has a built-in utility to decrypt encrypted order data using AES encryption from the `crypto-js` library.
-  
-- **Ethereum Smart Contract Interaction**: The service interacts with an Ethereum smart contract to fetch the reputation of an address. It uses the Ethers.js library for all Ethereum-related operations.
 
----
-
-You can further expand upon this, add installation steps, usage examples, or any other details you think might be relevant for users or contributors to your repository.
