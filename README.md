@@ -31,5 +31,5 @@ ethereatsbackend-production.up.railway.app
 
 Example Return Order:
 
-curl -X GET "http://localhost:3000/orders/0x111111efDB779228DF8D8c18FCd57477007a61dc"
+ curl -X GET "https://ethereatsbackend-production.up.railway.app/orders/0x111111efdb779228df8d8c18fcd57477007a61dc"
 {"reputation":"100","orders":[{"id":1,"customer":"0x111111efDB779228DF8D8c18FCd57477007a61dc","deliverer":"0x0000000000000000000000000000000000000000","amount":"100000000000000000000","timestamp":"1695485617","encryptedParams":"","isAccepted":false,"isCompleted":false,"createdAt":"2023-09-23T16:52:22.176Z","SignatureConfirmation":"YourSignatureHere"}]}%      
