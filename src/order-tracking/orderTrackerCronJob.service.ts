@@ -65,7 +65,8 @@ export class OrderTrackerService {
               deliverer: order.deliverer,
               amount: order.amount.toString(),
               timestamp: order.timestamp.toString(),
-              encryptedParams: ethers.utils.toUtf8String(order.encryptedParams),
+              encryptedParams:
+                '4358b158ab16ebc2371bb374885007dc76ed0b0a5d0b611bb7a427e61c9f8157', //ethers.utils.toUtf8String(order.encryptedParams), //Placeholder for AES Encryption App
               isAccepted: order.isAccepted,
               isCompleted: order.isCompleted,
             },

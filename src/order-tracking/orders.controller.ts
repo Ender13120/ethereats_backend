@@ -73,6 +73,19 @@ export class OrdersController {
     };
   }
 
+  @Get(':address/customer')
+  async findCustomer(@Param('address') address: string) {
+    const orders = await this.prisma.order.findMany();
+    const decryptedOrders = orders.map((order) => ({
+      ...order,
+      encryptedParams: this.decrypt(order.encryptedParams),
+    }));
+
+    return {
+      orders: decryptedOrders,
+    };
+  }
+
   @Post(':id/signature')
   async addSignature(
     @Param('id') id: number,
