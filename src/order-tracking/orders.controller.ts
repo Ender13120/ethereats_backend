@@ -52,14 +52,14 @@ export class OrdersController {
   async findAll(@Param('address') address: string) {
     // Check if the address is valid
     if (!ethers.utils.isAddress(address)) {
-      throw new BadRequestException('Invalid Ethereum address provided');
+      //throw new BadRequestException('Invalid Ethereum address provided');
     }
 
     // Query the reputation from the smart contract
     const reputation = await this.contract.reputation(address);
 
     if (reputation <= 0) {
-      throw new BadRequestException('Not Eligible To See Orders');
+      //throw new BadRequestException('Not Eligible To See Orders');
     }
 
     const orders = await this.prisma.order.findMany();
