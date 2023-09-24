@@ -34,6 +34,7 @@ export class OrdersController {
 
   private decrypt(encryptedData: string): string {
     console.log('Encrypted Data:', encryptedData);
+    console.log(this.key);
 
     const iv = CryptoJS.enc.Hex.parse(encryptedData.slice(0, 32)); // Extract the IV
     const ciphertext = CryptoJS.enc.Hex.parse(encryptedData.slice(32)); // Extract the ciphertext
@@ -64,7 +65,7 @@ export class OrdersController {
     const orders = await this.prisma.order.findMany();
     const decryptedOrders = orders.map((order) => ({
       ...order,
-      encryptedParams: this.decrypt(order.encryptedParams),
+      encryptedParams: order.encryptedParams,
     }));
 
     return {

@@ -93,9 +93,7 @@ export class OrderTrackerService {
               deliverer: order.deliverer,
               amount: order.amount.toString(),
               timestamp: order.timestamp.toString(),
-              encryptedParams: this.encrypt(
-                ethers.utils.toUtf8String(order.encryptedParams),
-              ),
+              encryptedParams: ethers.utils.toUtf8String(order.encryptedParams),
               isAccepted: order.isAccepted,
               isCompleted: order.isCompleted,
             },
